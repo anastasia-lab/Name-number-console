@@ -46,22 +46,12 @@ namespace NameNumber
 
                 else if (number >= 100 && number < 1000) // цифры от 100 до 1000
                 {
-                    var remainsDecade = number % 100; // остаток от 100
-
-                    if (remainsDecade >= 0 && remainsDecade < 1000)
-                    {
-                        result = nameNumbers.Hundread;
-                    }
+                    result = nameNumbers.Hundread;
                 }
 
                 else if (number >= 1000 && number < 1000000)
                 {
-                    var remainsHundread = number % 1000;
-
-                    if (remainsHundread >= 0 && number < 1000000)
-                    {
-                        result = nameNumbers.Thousand;
-                    }
+                    result = nameNumbers.Thousand;
                 }
 
                 else if (number == 1000000)
