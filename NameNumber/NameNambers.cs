@@ -104,7 +104,7 @@ namespace NameNumber
                 if (remainsThousand == 0) // остаток 0 от 1000
                 {
                     var unit = remainsThousand % 10; // остаток от единиц (часть от десятка)
-                    result = thousand + " " + more[1] + units[unit];
+                    result = thousand + " " + more[1];
                     Console.WriteLine("Перевод: {0}", result);
                 }
 
