@@ -19,7 +19,7 @@ namespace NameNumber
                 string UserInputNumber = Console.ReadLine();
 
                 if (UserInputNumber == "" || !int.TryParse(UserInputNumber, out int outNumber))
-                    Console.WriteLine("Проверите правильное написание числа");
+                    Console.WriteLine("Ой, кажется Вы неправильно ввели число. Убедитесь, что написано не прописью.");
                 else
                 {
                     int IntNumber = int.Parse(UserInputNumber);
