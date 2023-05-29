@@ -37,7 +37,7 @@ namespace NameNumber
             {
                 var decade = tens[number / 10]; // цифры 10 и от 20 до 99
                 var remains = number % 10;
-                result = decade + " " + units[remains];
+                result = decade + " " + Unit;
                 Console.WriteLine("Перевод: {0}", result);
 
                 return result;

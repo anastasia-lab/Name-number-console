@@ -12,57 +12,65 @@ namespace NameNumber
         {
             string result;
 
-            Console.Write("Введите число от 0 до 1000000 (включительно): ");
+            Console.Write("Введите целое число от 0 до 1000000 (включительно): ");
 
             try
             {
-                var number = Convert.ToInt32(Console.ReadLine());
-                NameNambers nameNumbers = new NameNambers(number);
+                string UserInputNumber = Console.ReadLine();
 
-                if (number > 1000000)
+                if (UserInputNumber == "" || !int.TryParse(UserInputNumber, out int outNumber))
+                    Console.WriteLine("Проверите правильное написание числа");
+                else
                 {
-                    Console.WriteLine("Извините, но Вы ввели слишком большое число.");
-                }
+                    int IntNumber = int.Parse(UserInputNumber);
+                    NameNambers nameNumbers = new NameNambers(IntNumber);
 
-                if (number == 0)
-                {
-                    Console.WriteLine("Перевод: zero");
-                }
 
-                else if (number > 1 && number < 10) //цифры от 1 до 9
-                {
-                    result = nameNumbers.Unit;
-                }
-
-                else if (number == 10 || number >= 20 && number < 100) // цифры 10 и от 20 до 99
-                {
-                    result = nameNumbers.Ten;
-                }
-
-                else if (number >= 11 && number < 20) // цифры от 11 до 19
-                {
-                    result = nameNumbers.Teen;
-                }
-
-                else if (number >= 100 && number < 1000) // цифры от 100 до 1000
-                {
-                    var remainsDecade = number % 100; // остаток от 100
-
-                    if (remainsDecade >= 0 && remainsDecade < 1000)
+                    if (IntNumber > 1000000)
                     {
-                        result = nameNumbers.Hundread;
+                        Console.WriteLine("Извините, но Вы ввели слишком большое число.");
                     }
-                }
 
-                else if (number >= 1000 && number < 1000000)
-                {
+                    if (IntNumber == 0)
+                    {
+                        Console.WriteLine("Перевод: zero");
+                    }
 
-                    result = nameNumbers.Thousand;
-                }
+                    else if (IntNumber > 1 && IntNumber < 10) //цифры от 1 до 9
+                    {
+                        result = nameNumbers.Unit;
+                    }
 
-                else if (number == 1000000)
-                {
-                    result = nameNumbers.Million;
+                    else if (IntNumber == 10 || IntNumber >= 20 && IntNumber < 100) // цифры 10 и от 20 до 99
+                    {
+                        result = nameNumbers.Ten;
+                    }
+
+                    else if (IntNumber >= 11 && IntNumber < 20) // цифры от 11 до 19
+                    {
+                        result = nameNumbers.Teen;
+                    }
+
+                    else if (IntNumber >= 100 && IntNumber < 1000) // цифры от 100 до 1000
+                    {
+                        var remainsDecade = IntNumber % 100; // остаток от 100
+
+                        if (remainsDecade >= 0 && remainsDecade < 1000)
+                        {
+                            result = nameNumbers.Hundread;
+                        }
+                    }
+
+                    else if (IntNumber >= 1000 && IntNumber < 1000000)
+                    {
+
+                        result = nameNumbers.Thousand;
+                    }
+
+                    else if (IntNumber == 1000000)
+                    {
+                        result = nameNumbers.Million;
+                    }
                 }
             }
             catch (Exception ex)
